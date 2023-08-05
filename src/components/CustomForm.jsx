@@ -1,4 +1,6 @@
+
 import React from 'react'
+// import {BeakerIcon} from '@heroicons/react'
 
 const CustomForm = () => {
   
@@ -37,7 +39,8 @@ const CustomForm = () => {
             aria-label="Add Task"
             type="submit"
         >
-        <BeakerIcon className="h-6 w-6 text-blue-500" />
+        {/* <   BeakerIcon className="h-6 w-6 text-blue-500" /> */}
+        Add
         </button>
     </form>
   )
