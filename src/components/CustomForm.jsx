@@ -1,14 +1,21 @@
 
 import React from 'react'
+import { useState } from 'react';
  import {PlusIcon} from '@heroicons/react/24/solid';
 
 
-const CustomForm = () => {
-    
-    
+const CustomForm = ({addTask}) => {
+    const [task, setTask] = useState("");
+
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log(e);
+        addTask({
+            name: task,
+            checked: false,
+            id: Date.now() // Date.now example: 1691329813346 // Generate unique Id if when you configure to the database.
+        })
+        setTask("")
     }
   
     return (
@@ -16,7 +23,8 @@ const CustomForm = () => {
         className="todo"
         onSubmit={handleFormSubmit}
         >
-
+        
+        
         <div className="wrapper">
             <input 
                 type="text" 
