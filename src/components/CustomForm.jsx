@@ -1,9 +1,11 @@
 
 import React from 'react'
-// import {BeakerIcon} from '@heroicons/react'
+ import {PlusIcon} from '@heroicons/react/24/solid';
+
 
 const CustomForm = () => {
-  
+    
+    
     const handleFormSubmit = (e) => {
         e.preventDefault();
         console.log(e);
@@ -20,8 +22,8 @@ const CustomForm = () => {
                 type="text" 
                 id="task"
                 className="input"
-                // value={task}
-                // onInput={(e) => setTask(e.target.value)}
+                value={task}
+                onInput={(e) => setTask(e.target.value)}
                 required
                 autoFocus
                 maxLength={60}
@@ -39,8 +41,8 @@ const CustomForm = () => {
             aria-label="Add Task"
             type="submit"
         >
-        {/* <   BeakerIcon className="h-6 w-6 text-blue-500" /> */}
-        Add
+        <   PlusIcon  />
+        
         </button>
     </form>
   )
