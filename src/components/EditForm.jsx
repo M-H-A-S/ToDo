@@ -4,8 +4,8 @@ import { useState } from 'react';
  import {PlusIcon} from '@heroicons/react/24/solid';
 
 
-const EditForm = ({addTask}) => {
-    const [task, setTask] = useState("");
+const EditForm = ({editedTask}) => {
+    const [updatedTaskName, setUpdatedTaskName] = useState("");
 
 
     const handleFormSubmit = (e) => {
