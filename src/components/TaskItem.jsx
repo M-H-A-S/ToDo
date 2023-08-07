@@ -40,7 +40,7 @@ const TaskItem = ({task}) => {
             aria-label={'Update ${task.name} Task'}
             // onClick={}
           >
-
+            <PencilIcon width={24} height={24} />
           </button>
 
         </div> 
