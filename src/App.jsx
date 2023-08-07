@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 // Custom compoents 
 import CustomForm from './components/CustomForm'
+import EditForm from './components/EditForm'
 import TaskList from './components/TaskList';
 
 function App() {
@@ -18,6 +19,14 @@ function App() {
     setTasks(prevState => prevState.filter(t => t.id !== id));
   } 
 
+  const ToggleTask = (id) => {
+    setTasks(prevState => prevState.map(t => (
+      t.id == id
+        ? { ... t, checked: !t.checked }
+        : t 
+    )))
+  }
+
 
   return (
     <>
@@ -25,11 +34,13 @@ function App() {
       <header>
         <h1>My Task List</h1>
       </header>
+      <EditForm />
       <CustomForm addTask={addTask} />
       { tasks && (
         <TaskList 
           tasks={tasks} 
-          deleteTask= {deleteTask}      
+          deleteTask= {deleteTask}  
+          ToggleTask= {ToggleTask}    
         />
         
         )}
