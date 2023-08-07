@@ -7,10 +7,17 @@ import TaskList from './components/TaskList';
 function App() {
   const [tasks, setTasks] = useState([0]);
 
+  // Add Task Function
   const addTask = (task) => {
     setTasks(prevState => [...prevState, task])
 
   }
+
+  // Delete Function 
+  const deleteTask = (id) => {
+    setTasks(prevState => prevState.filter(t => t.id !== id));
+  } 
+
 
   return (
     <>
@@ -19,7 +26,13 @@ function App() {
         <h1>My Task List</h1>
       </header>
       <CustomForm addTask={addTask} />
-      { tasks && <TaskList tasks={tasks} />}
+      { tasks && (
+        <TaskList 
+          tasks={tasks} 
+          deleteTask= {deleteTask}      
+        />
+        
+        )}
     </div>
     </>
   )
