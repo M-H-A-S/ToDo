@@ -6,9 +6,10 @@ import { useState } from 'react';
 
 const EditForm = ({editedTask, updateTask}) => {
     const [updatedTaskName, setUpdatedTaskName] = useState(editedTask.name);
-    // start here - 1:00:17
+    // start here - 1:03:10
     const handleFormSubmit = (e) => {
         e.preventDefault();
+        // updateTask()
         
     }
   
