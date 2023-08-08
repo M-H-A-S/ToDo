@@ -1,10 +1,10 @@
 
 import React from 'react'
 import { useState } from 'react';
- import {PlusIcon} from '@heroicons/react/24/solid';
+ import {CheckIcon} from '@heroicons/react/24/solid';
 
 
-const EditForm = ({editedTask}) => {
+const EditForm = ({editedTask, updateTask}) => {
     const [updatedTaskName, setUpdatedTaskName] = useState(editedTask.name);
     // start here - 1:00:17
     const handleFormSubmit = (e) => {
@@ -13,40 +13,46 @@ const EditForm = ({editedTask}) => {
     }
   
     return (
-    <form  
-        className="todo"
-        onSubmit={handleFormSubmit}
+    <div 
+        role="dialog" 
+        aria-aria-labelledby="editTask"
+        // onClick={}
         >
-        
-        
-        <div className="wrapper">
-            <input 
-                type="text" 
-                id="task"
-                className="input"
-                value={task}
-                onInput={(e) => setTask(e.target.value)}
-                required
-                autoFocus
-                maxLength={60}
-                placeholder='Enter Task' 
-            />
+        <form  
+            className="todo"
+            onSubmit={handleFormSubmit}
+            >
+            
+            
+            <div className="wrapper">
+                <input 
+                    type="text" 
+                    id="editTask"
+                    className="input"
+                    value={updatedTaskName}
+                    onInput={(e) => setTask(e.target.value)}
+                    required
+                    autoFocus
+                    maxLength={60}
+                    placeholder='Update Task' 
+                />
 
 
-            <label 
-                htmlFor="task"
-                className='label'
-            >Enter Task</label>
-        </div>
-        <button 
-            className="btn"
-            aria-label="Add Task"
-            type="submit"
-        >
-        <   PlusIcon  />
-        
-        </button>
-    </form>
+                <label 
+                    htmlFor="task"
+                    className='label'
+                >Update Task</label>
+            </div>
+            <button 
+                className="btn"
+                aria-label={`Confirm edited task to now read ${updatedTaskName}`}
+                type="submit"
+            >
+            <   CheckIcon strokeWidth={2} height={24} width={24} />
+            
+            </button>
+        </form>
+    </div>
   )
 }
 
