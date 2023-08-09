@@ -9,7 +9,7 @@ const EditForm = ({editedTask, updateTask}) => {
     // start here - 1:03:10
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        // updateTask()
+        updateTask({... editedTask, name: updatedTaskName})
         
     }
   
