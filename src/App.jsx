@@ -6,7 +6,8 @@ import EditForm from './components/EditForm'
 import TaskList from './components/TaskList';
 
 function App() {
-  const [tasks, setTasks] = useState([0]);
+  const [tasks, setTasks] = useState([]);
+  const [editedTask, setEditedTasks] = useState(null);
 
   // Add Task Function
   const addTask = (task) => {
@@ -25,6 +26,16 @@ function App() {
         ? { ... t, checked: !t.checked }
         : t 
     )))
+    // TODO: close the edit mode
+
+  }
+
+  const updateTask = (task) => {
+    setTasks(prevState => prevState.map(t => (
+      t.id == task.id
+        ? { ... t, name: task.name }
+        : t 
+    )))
   }
 
 
@@ -34,7 +45,10 @@ function App() {
       <header>
         <h1>My Task List</h1>
       </header>
-      <EditForm />
+      <EditForm 
+        editedTask={editedTask}
+        updateTask={updateTask}
+      />
       <CustomForm addTask={addTask} />
       { tasks && (
         <TaskList 
