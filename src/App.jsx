@@ -68,6 +68,7 @@ function App() {
           <EditForm 
           editedTask={editedTask}
           updateTask={updateTask}
+          closeEditMode={closeEditMode}
           />
         )
       }
