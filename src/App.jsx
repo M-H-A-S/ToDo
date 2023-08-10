@@ -7,6 +7,8 @@ import TaskList from './components/TaskList';
 
 function App() {
   const [tasks, setTasks] = useState([]);
+
+  const [previousFocusEl, setPreviousFocusEl] = useState(null);
   const [editedTask, setEditedTask] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -44,12 +46,14 @@ function App() {
 
   const closeEditMode = () => {
     setIsEditing(false);
-    // TODO: previous state focus
+    previousFocusEl.focus();
   }
 
   const enterEditMode = (task) => {
     setEditedTask(task);
     setIsEditing(true);
+    setPreviousFocusEl(document.activeElement);
+    // Start Here - 09/08/2023 17:00 - vid- 01:15:50
     // TODO: set focus back to original
   }
 

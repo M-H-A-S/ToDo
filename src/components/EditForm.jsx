@@ -1,12 +1,20 @@
 
-import React from 'react'
-import { useState } from 'react';
+import React, { useEffect } from 'react'
+import { useState,useEffect } from 'react';
  import {CheckIcon} from '@heroicons/react/24/solid';
 
 
 const EditForm = ({editedTask, updateTask}) => {
     const [updatedTaskName, setUpdatedTaskName] = useState(editedTask.name);
     // start here - 1:03:10
+
+    useEffect(() =>{
+        const closeModalIfEscaped = (e) => {
+            e.key == "Escape" && closeEditMode();
+        }
+        windowm.addEventListener('keydown', closeModalIfEscaped)
+    }, [])
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
         updateTask({... editedTask, name: updatedTaskName})
