@@ -118,6 +118,7 @@ h1 {
   display: grid;
   gap: clamp(2rem, 3.5vmax, 8rem);
   text-align: center;
+  background-color: rgb(214, 214, 243);
 }
 
 hr {
